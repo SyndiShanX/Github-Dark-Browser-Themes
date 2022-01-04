@@ -52,7 +52,7 @@ var synCss = `
 /* Main Background Image */
 .stash-page-wrapper table:not(.js-rows) tbody tr:nth-child(even) td, .stash-page-wrapper table:not(.js-rows) tbody tr:nth-child(even):hover, .sp-shortcuts-shortcut, .menu,
 .sp-details-file-tags, .tags, .sp-details-file-info-right-pane span, .stash-page-content .file.png,.stash-page-content .file.zip:not(.no-thumbnail), .fs-img-container, .ccin-select,
-.ccin-wrapper .ccin-menu, .ccin-menu-hint, .stash-page-wrapper textarea, .even .filepath, .even:hover {
+.ccin-menu-item:hover, .ccin-selected-item, .stash-page-wrapper textarea, .even .filepath, .even:hover, .ccin-wrapper:not(#searchbar) .ccin-input {
 	background-image: var(--bgImage)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -63,7 +63,8 @@ var synCss = `
 }
 
 /* Darkness 2 Background Image */
-body, .sp-search-results-wrapper, .stash-page-wrapper table:not(.js-rows) tbody tr:nth-child(odd) td, .ccin-input:focus, .stash-page-scroller, .even th, .content {
+body, .sp-search-results-wrapper, .stash-page-wrapper table:not(.js-rows) tbody tr:nth-child(odd) td, .ccin-input:focus, .stash-page-scroller, .even th, .content, .ccin-wrapper .ccin-menu,
+.ccin-menu-hint {
 	background-image: var(--bgDarkness2)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
