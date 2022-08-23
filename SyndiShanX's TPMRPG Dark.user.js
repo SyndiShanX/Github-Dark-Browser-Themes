@@ -2,6 +2,7 @@
 // @name           SyndiShanX's TPMRPG Dark
 // @author         SyndiShanX
 // @include        https://pkmneclipse.net/*
+// @include        https://eclipserpg.com/*
 // @version        1.15
 // ==/UserScript==
 var synCss = `
@@ -29,7 +30,8 @@ var synCss = `
 }
 
 /* Main Background Image */
-body, .active, .tnav_left, .tnav.left, .tnav, .middle_navigation li a:hover:not(.navtitle-link-child), .mine-button {
+body, .active, .tnav_left, .tnav.left, .tnav, .middle_navigation li a:hover:not(.navtitle-link-child), .mine-button, .tnav_battle, .tnav_battle_information, #battlebtn:hover, .forward:hover,
+.inputsubmit:hover, .plushies-box.blue, .page-number-link, .page-number-link:hover {
 	background-image: var(--bgImage)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -40,7 +42,7 @@ body, .active, .tnav_left, .tnav.left, .tnav, .middle_navigation li a:hover:not(
 }
 
 /* Darkness 1 Background Image */
-.inside, .sidebar, .tnav_left_information {
+.inside, .sidebar, .tnav_left_information, .tnav_information, .tnav_information.left, #battlebtn, .forward, .inputsubmit {
 	background-image: var(--bgDarkness1)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -85,22 +87,22 @@ input, input.text, select, textarea {
 .inner-bar {
   background: linear-gradient(#35AFEA, #227198)!important;
 }
-.tnav_information {
-  display: none!important;
-}
-.tnav_header, .navtitle {
+.tnav_header, .navtitle, .plushies-box-title {
   background: url(https://pokemoncreed.net/styles/4/col2_head.jpg)!important;
   background-image: url(https://pokemoncreed.net/styles/4/col2_head.jpg)!important;
 }
-#content, .content_header, .inside_header, .inside_footer, #footer, .clear_table td, .message {
+#content, .content_header, .inside_header, .inside_footer, #footer, .clear_table td, .message, .label-link {
   background: transparent!important;
 }
 .inside, .sidebar, .mine-button {
 	border-radius: 12px!important;
   border: 1px solid var(--border-primary)!important;
 }
-.tnav, .tnav.left, .tnav_left, .tnav_left_information {
+.tnav, .tnav.left, .tnav_left, .tnav_left_information, .tnav_information, .tnav_information.left, .plushies-box.blue {
   border: 1px solid var(--border-primary)!important;
+}
+.plushies-box-title {
+  border-bottom: 1px solid var(--border-primary)!important;
 }
 .middle_navigation li:not(.navtitle):not(.navtitle-link) {
   border-top: 1px solid var(--border-secondary)!important;
@@ -118,16 +120,48 @@ input, input.text, select, textarea {
 a:hover:not(.navtitle-link-child) {
   color: #00ffff!important;
 }
-span, #footer, .tnav_header, .left, .tnav_left_information, .tnav_information, .navtitle-link-child, .mine-button, .clear_table, body, .tnav_left, .tnav, font {
+span, #footer, .tnav_header, .left, .tnav_left_information, .tnav_information, .navtitle-link-child, .mine-button, .clear_table, body, .tnav_left, .tnav, font, .wild-pokemon-message,
+.tnav_battle, .tnav_battle_information, #battlebtn, .forward, .inputsubmit, .page-number-link, .profile-party-color, .profile-party-name, .party-pokemon-header, .p_title, #internal_link,
+#internal_link_2, .mining-shop-shard {
 	color: #fff!important;
 }
-#internal_link, a {
+.p_title {
+	background: -webkit-linear-gradient(#fff, #fff)!important;
+  -webkit-background-clip: text!important;
+  -webkit-text-fill-color: transparent!important;
+}
+#internal_link, a, .page-number-link.disabled {
   color: #35AFEA!important;
 }
 `
 
+document.getElementById("theme-stylesheet").remove()
+
 var head = document.getElementsByTagName('head')[0];
+
+var default_theme = document.createElement("link");
+default_theme.rel = "stylesheet"
+default_theme.id = "theme-stylesheet"
+default_theme.href = "https://pkmneclipse.net/themes/smoke/stylesheet_theme_smoke.css?657"
+head.appendChild(default_theme);
+
 var stylesheet = document.createElement("style");
 stylesheet.type = 'text/css'
 stylesheet.innerText = synCss
 head.appendChild(stylesheet);
+
+//function removeTitles() {
+//  if (document.getElementsByClassName('tnav_information').length != 0) {
+//  	for (i = 0; i < document.getElementsByClassName('tnav_information').length; i++) {
+//  		if (document.getElementsByClassName('tnav_information')[i].align == 'center') {
+//  			document.getElementsByClassName('tnav_information')[i].remove()
+//  		}
+//  	}
+//  }
+//}
+//
+//var loop = 10;
+//for(var i = 0; i < loop; i++){
+//  removeTitles()
+//}
+

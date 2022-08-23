@@ -48,7 +48,7 @@ var synCss = `
 }
 
 /* Main Background Image */
-body, .col-md-8, .col-lg-8, .color-bg-tertiary, .SelectMenu-tab[aria-selected="true"], .commit-ref, .MarketplaceHeader, .MarketplaceBody, .MarketplaceBackground-buffer {
+body, .col-md-8, .col-lg-8, .color-bg-tertiary, .SelectMenu-tab[aria-selected="true"], .commit-ref, .MarketplaceHeader, .MarketplaceBody, .MarketplaceBackground-buffer, pre {
 	background-image: var(--bgImage)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
