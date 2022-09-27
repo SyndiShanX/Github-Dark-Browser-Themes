@@ -48,7 +48,7 @@ var synCss = `
 }
 
 /* Main Background Image */
-body, .col-md-8, .col-lg-8, .color-bg-tertiary, .SelectMenu-tab[aria-selected="true"], .commit-ref, .MarketplaceHeader, .MarketplaceBody, .MarketplaceBackground-buffer, pre {
+body, .col-md-8, .col-lg-8, .color-bg-tertiary, .SelectMenu-tab[aria-selected="true"], .commit-ref, .MarketplaceHeader, .MarketplaceBody, .MarketplaceBackground-buffer, pre, code {
 	background-image: var(--bgImage)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -115,7 +115,7 @@ body, .col-md-8, .col-lg-8, .color-bg-tertiary, .SelectMenu-tab[aria-selected="t
 }
 
 /* Main Tweaks */
-.form-control:not(.header-search-input), .SelectMenu-item, .SideNav-item, .flash, .commit-ref, .menu-item {
+.form-control:not(.header-search-input), .SelectMenu-item, .SideNav-item, .flash, .commit-ref, .menu-item, pre, p>code {
 	border: 1px solid var(--border-primary)!important;
 }
 .form-control:not(.header-search-input):hover, .SelectMenu-item:hover, .SideNav-item:hover, .SideNav-item.selected, .menu-item.selected:hover, .menu-item.selected {
