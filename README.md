@@ -1,6 +1,6 @@
 A Github Dark Theme for Various Websites
 
-Made by: SyndiShanX#4620
+Made by: SyndiShanX
 
 Inspired by: Github Dark
 
