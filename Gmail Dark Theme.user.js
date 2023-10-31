@@ -1,22 +1,15 @@
 // ==UserScript==
-// @name           SyndiShanX's Curseforge CSS
+// @name           Gmail Dark Theme
 // @author         SyndiShanX
-// @include        http://www.curseforge.com/*
-// @include        https://www.curseforge.com/*
-// @include        http://*.www.curseforge.com/*
-// @include        https://*.www.curseforge.com/*
-// @require        http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js
+// @include        https://mail.google.com/*
 // ==/UserScript==
-var synCSS = `
+
+var synCss = `
 :root {
-	--background-primary: rgba(0, 0, 0, 0);
-	--background-tertiary: rgba(0, 0, 0, 0.5);
-	--border-primary: #5c5c5c;
+  --border-primary: #5c5c5c;
 	--border-secondary: #c0c0c0;
-	--selection-text: #ffffff;
-	--orange-button: #F16436;
-	--orange-button-hover: #F57F58;
-	--scrollbar-width: 8px;
+  --arrowIcon: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABqSURBVDhPY/z//z8DNQETlKYaGDWQcjD4DcSXDicAsT6EiQEuAnEBhIkGQAbiwAJAfAGI0QFIDCSHTQ9eA0EY3VC8hoEwMVlPAIgPQJgMDkD8AcLEDojNyyBDQQCvYSAwWjhQDkacgQwMAPOIlRP2zvYRAAAAAElFTkSuQmCC');
+	--moreIcon: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVDhPY/z//z8DNQETlKYaGDWQcjD0DBQC4l4oBrFBgFgxCAAlbCQ8AYhhAMQmRQyM0V3ICKWRAbFiEIBsOhALA3EfEPdD2aSIgfFoXqYcjBpIKWBgAABCtI6FP6gVrwAAAABJRU5ErkJggg==');
 	--bgImage: url('data:image/png;base64,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');
 	--bgDarkness1: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGBAMAAACDAP+3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAVUExURRgYGBcXFxUVFRoaGhsbGx0dHRwcHFbDdK8AAAAJcEhZcwAADr8AAA6/ATgFUyQAAAUASURBVEjHTZbBjttIDETZamXOTWmQs+T8QGta67Nm5fgcYIM9ezGz+f9P2FeUjKyBMIZFdReLxeKYpcvc0uBu1YrdajFbzcz/eKSLl3rxOZPjUyKMPEi58kOfWrJstbovxdz1rhv5fMsbTwh76mvZZmvdmIrxPhml8zmNyaxxiFmuydr4NnvmoRdbdEYbfC67nn4Sxhsvvm5+8fEjufsLOXPZAFxelPNhVvqNb0fOTk6piZwqXMvXjVtVWiNYKzaDkFJKx5WFvDSqYKq+WV9tLxmsM4BrKWngZ16YEq/kpVmhLspOOwChyKmC68yW2b3f+KnfKG2tHLG+k3MVmHUH9WiVnMrjsm6ppHsS2WmYfU0+eFMYwTOMgjkm3VWbef8mrImCeqAMdCEotq00bnSYBjMIvFJJ2aGQbCqG3dKygMSnXwRTWHtC5ht5n8KwA9g+lfYBhPIAq+1AzYtyvl0XXv4AGDwnylNOjXpmANc06y4qrwYAepZKo4hLnTjfim7NzY3KVgi0Nb1Wa+lVcigE2i4gSe0XxVRMr4Q91VCkNCGez6A2vzy4ZQVWukL7cF2ePOdOnbefFHTdLaX7Rnn3RC1NuqmRQ5gkz7iGAri4D2Ur5MTzArODhL5bSLlSNc0ry1BnE/tArxcwV7WaoixnRoAwiOKZisWzTop7iv1SlJTzzQekC5hv4vkg8j36I3bRbip5Sz6PpifiGZCzJpNPCHinQqRZ/aKBK/UISXcFgUiZrq9qcw6KU1AMN0ltb4ccLENrbWJXsvwfzxzCFEBxeRHZ13dN3BsBnt1X/s03ieWTXiS/6ry1nuxOEphbDKAu+Qi3EAm5KyfFgjLb0ISmqSZdyU1baj5BsKpZJJ2KLMpCkWLY+kyROQRcnr1+8lxCYqYBLm5/idhgd49vlPcNIaTXh7qQ92qplx7E7gC7PpQgO+sqwQmjSNukw13EYgcTLR/KAjOl4mmiqOn63E1yEExNeibfZIqYDDmHlOcBKQc1dD6oiWa2TbKxB+C//DMPs+bTX0Sf5tNvYk7B7sjQaaoofvJ8nhOaUNOBUv31TRR3gSLHQAl7o9ojWIHiQRDhGbcoS6nzZCUcooatSxeWfhMb4SIv4SDKkWEFz/LefXhSLE8YNWtfRXH/kJfm2h027MeJFlLmcphj1EOGG+z6aRT1CBNQHCAavNDzEsTOMZiZvTGAEyF4LzWswssxQcjBrp8UA1qKGdeNK3f7E9kGxX0XUgZ7Dw7Y5fMLytCz9FAttHtCL4u22kGxTHlTGaWbuoNd4QHZKm9rYXD4kixVEy6ZljotlDTxbtVEIPQyUtxghw1bxv6PZmrF9rxsFRFrYwzyZ/9NMUtIQ9kfFCPZF5Rth6efFB/npNKLXcSVGBgaPi1it2ppnpZBVZt2dMUpYImpiz0IN2Pw3OVYdASKs5/CyhavolhrN1g41Md85pVp+fLrPX5bkEL/dqp4EMXlu0bqX9DZ37Li1Z7shpTdgi9Jr8p6bqeyTwFnYA38LKNgq/YEu3e7xs0O7+M/1aWNKBsJL6EuP6bxNIo+zcep2lDSA6Z168KulXNQTC9G1nPKP5TzIzaNlP2QDwTFKG9wEYsdEdoRXH8gcc4TD0ualZzGTW4Sf1BsU8gbPGPU1Q1SL1VlHbwGk0migDeFw4tL02Zg0ZVylxXfEegsu36Va51uEXr7zpTw+JAy8ib4/h/o4qxp5wlvXAAAAABJRU5ErkJggg==');
 	--bgDarkness2: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGBAMAAACDAP+3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAASUExURRQUFBMTExISEhYWFhgYGBcXFzQNGvwAAAAJcEhZcwAADr8AAA6/ATgFUyQAAASVSURBVEjHTZbBbiM5DESp1vhOSph7y/kBykzfBwj27oU3//8rW0XJ2Q0GHMPNloqPJcoi5T6iNDNxUQlXkRAR+3yWu6nfbVTk2FkQOh6U6viilihSxd1sqpjxXRPk41PFP4ZAqvqQOHpRwfvI0MNG6QV7YBEs40WiP4ZVPDSVyTWi2VBqqC+EHnixu92tv4qZ3ZAz1CFYbztHsZnsnECOekGOU9f87diVpQWChMqAQpSiB7ZU5JXOgrNqatYKrQOCXbU0fI0XzoJX6kQW6iqsHQKByFAFthOZw6ySHOsBQywREzkXxURAdRdHjuOx8nG5CmGXNgyC2wodelqnzF64l4dYfVBrQUHk1dCFRCyugR0X7IACc1SC71CzkjOyNSqF5F+dlEmtFFzxCXmvpQGPX0x7QYI+jVWxnMmcj2smYi0IqNyZ41nPgGAvg3uhchcIQM+gAUXc/cT6oty1Ql4n/jqxWact0g6KgLZTSGH7idjZddoLFacj6Qly3oFtvj2xS0BWuYC9XT+c68HOyxcKuuCZctGTV0Et9IR55iCctGdugwKynXQ2Qy14rqDYaHQaBnRXGDobrEz6kO53aM5WV/KpOAIIjYjHQsyguY/KNyOtDBRtJL4Pcl4gpywXw+RRCrpebHThEyZC5LCsW7aBURVOld154NRXyL0SYLoY7qmshohLIgYbOqiEbD8Aqwfp0pb/47wWAWK9cVPQxYl7IOQnOnlEmgWZxS6uF77pnjSYSR5AyRxOC0Koh27ElDKkBdXEmjRELNCMxoysZtI6DlvoRJEkDLoosqaB9d3rN2dNiyUgNfki2KQb+QnlfQBZ6U92oQZkV/qBdBvoWtOEXbkV5eSgKH5ycSNYjIMTLW86QUadbl+cUcNxcoJgqNHPyOcZ4ZBBzrLyaLByokHnE002M8i5yhPif/092qjJmfhYlPHd1asL6/BgEfGb815H3uuw5dYfRHykimw+5wZeBLUMUF4wWDmkT8wN04nRfIrmhPAc6+T8MyPe4c5ZgoWgZg8LCc7eFZaLOQnw9DcR16fkHDzWGLa1oqSVc1YAUR5zmA5P9qDwFU5+u89c+nkm2JEHs2JuNOiEEYyBhKss7xZbdG0jtuWYHvwUAgMvxPQNrNxSF+ni7xvI6GdYAXcFvbul61w3IhFzKDvL0OM8Fl3qgbKgYzLwfHGk8lzTpurnRElnjmtPoysW8SZvuhj/q5m8YivpAo3yxmicz/YfYlxCPJR1IYZlb3C2rJm+Ea91MEHy6sQnIELDz0m6zktzjwxPFyfifUPnPQg2PTkfNS86BHrwi1qR40ScU1l+3Df3ifr1PfO7CSvUx3ZxI2L95JH6B+rkrxzF8qabVjZJXrSeJ+ft7G3gClktuxy8VSubcR3B4yZr9uE/1uXvMZKhcnik1d+DYqxV81Amn4gjx3X+3kjE6AXuM2D4w5w/edPQ2U/OgUQM06E8VpUhVqC1uM5bDy7pvOOc++QPCj/T3tDTs66j0b38jcSF8yzglwDlsmDbs1h5xyVivXIUw1WD47pzau1pkX77xCmRzPnmd7wMLf4FRkih2/FxJ/YAAAAASUVORK5CYII=');
@@ -24,8 +17,7 @@ var synCSS = `
 }
 
 /* Main Background Image */
-.z-0, .items-center:hover:not(.search):not(.pagination):not(.justify-between), .game-header, .tag, .site-footer-social, .root-content, li, .source-quote, .select2-choices, .select2-container,
-.select2-results, .project-page, main, .file-card:hover, .member-card:hover, .back-to-top, .curseforge-header {
+.J-N-JT:hover, .z0>.L3:hover, .gssb_i:hover, .aRp, .gb_Se.gb_Te, .H2, .aDG, div.ajR, .at {
 	background-image: var(--bgImage)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -36,9 +28,7 @@ var synCSS = `
 }
 
 /* Darkness 1 Background Image */
-.items-center:not(.search):not(.pagination):not(.justify-between):not(.bg-green-500), input:not(input[value="Sign Out"]), select, table, tr, td:not(.bg-green-500), th, .user-content,
-.site-footer, .border-gray--100, .user-list-item, .project-list-bubble-item, textarea, .form-submit, .spoiler, .tip-link, .msgbox, .p-4, .e-settings-container, .project-details-box,
-.site-footer-nav li, .project-details-box li, .file-card, .member-card, .footer-bottom li {
+.a3s>div>div, .a3s>div>div>div, .a3s table, .hN, .hO, .J-M, .z0>.L3, .gssb_m, .gssb_e {
 	background-image: var(--bgDarkness1)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -49,7 +39,7 @@ var synCSS = `
 }
 
 /* Darkness 2 Background Image */
-.bg-accent, .bg-gray-500 {
+.bjd, .anN, .ahP, .Kj-JD[role="alertdialog"], .J-J5-Ji div {
 	background-image: var(--bgDarkness2)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -60,7 +50,7 @@ var synCSS = `
 }
 
 /* Darkness 3 Background Image */
-.box, .project-detail__content li {
+.ajA, .bkK>.nH, .WR.aeN, .OU:hover, .a6o::before, .aCe .aCm, .aRz.J-KU:hover, .a0U.aAA>.aRz>.aAy:focus, .iY .Bu {
 	background-image: var(--bgDarkness3)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -70,54 +60,30 @@ var synCSS = `
 	background-position: left top!important;
 }
 
-span, label, .font-bold, .mr-2:not(.text-primary-500):not(.border-primary-500), input, select, a, abbr, p, .text-sm, td, .text-gray-500, .text-xl, .text-center, textarea, .form-submit,
-.user-menu__item, li, pre, h1, h2, h3, h4, strong, body, div, .select2-container {
-  color: white!important;
+/* More Icon */
+div.ajR .ajT {
+	background-image: var(--moreIcon)!important;
+	background-clip: border-box!important;
+	background-origin: padding-box!important;
+	background-attachment: scroll!important;
+	background-repeat: repeat!important;
+	background-size: auto!important;
 }
 
-.pagination-next, .pagination-prev {
-  border-width: 1px;
-  border-color: white;
-  border-radius: 0.5rem;
-}
-
-.border-gray--100 {
-  border-radius: 0.5rem;
-}
-
-.game-header {
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 75%, transparent 100%);
-}
-
-.pt-6, .game-header .justify-between {
-  margin-bottom: 50px;
-}
-
-.search {
-  background-image: transparent!important;
-}
-
-.search:hover {
-  background-color: rgba(255, 255, 255, 0.1)!important;
-  border-radius: 0.5rem;
-}
-
-.search svg {
-  padding-right: 2px;
-}
-
-.border-primary-100 {
-  border-color: white;
-}
-
-option {
-  background-color: #1a1a1a;
+/* Icon Icon */
+.ajy>.ajz {
+	background-image: var(--arrowIcon)!important;
+	background-clip: border-box!important;
+	background-origin: padding-box!important;
+	background-attachment: scroll!important;
+	background-repeat: repeat!important;
+	background-size: auto!important;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
 	border: none!important;
-	width: var(--scrollbar-width)!important;
+	width: 8px!important;
 }
 ::-webkit-scrollbar-track {
 	background: 0 0!important;
@@ -136,19 +102,32 @@ option {
 	background: rgba(75, 75, 75, 1)!important;
 }
 
-/* Buttons */
-/* Orange */
-.button, .button--hollow {
-	background-color: var(--orange-button)!important;
+/* Main Tweaks */
+.nr, .a3s table, p, .J-JN-M-I-Jm .T-I-J3 {
+  background-color: transparent!important;
+}
+.ams.bkH::before, .ams.bkG::before, .T-I-J3 {
+  background-color: #fff!important;
+}
+.z0>.L3 {
+  border: 1px solid var(--border-primary)!important;
+}
+.amr .amn>.ams {
+  border: 1px solid var(--border-secondary)!important;
+}
+.iY, .Bu, .hP, .gD, .hb, .iA, .g6, .ams, h1, h2, h3, h4, h5, h6, p, td, tr, th, div, .Kj-JD-K7-K0, button {
 	color: #fff!important;
 }
-.button:hover, .button--hollow:hover {
-	background-color: var(--orange-button-hover)!important;
+.zA.yO>td>div>span>span {
+  color: #b5b5b5!important;
+}
+.a3s>div>div, .a3s>div>div>div, .a3s table {
+  border-radius: 12px;
 }
 `
 
 var head = document.getElementsByTagName('head')[0];
 var stylesheet = document.createElement("style");
 stylesheet.type = 'text/css'
-stylesheet.innerText = synCSS
+stylesheet.innerText = synCss
 head.appendChild(stylesheet);

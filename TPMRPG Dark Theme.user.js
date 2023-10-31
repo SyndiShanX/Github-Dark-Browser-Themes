@@ -1,9 +1,10 @@
 // ==UserScript==
-// @name           SyndiShanX's TPMRPG Dark
+// @name           TPMRPG Dark Theme
 // @author         SyndiShanX
 // @include        https://pkmneclipse.net/*
 // @include        https://eclipserpg.com/*
 // ==/UserScript==
+
 var synCss = `
 :root {
 	--border-primary: #5c5c5c;
@@ -118,6 +119,9 @@ span, #footer, .tnav_header, .left, .tnav_left_information, .tnav_information, .
 }
 #internal_link, a, .page-number-link.disabled {
   color: #35AFEA!important;
+}
+.plushie_notice {
+  display:none;
 }
 `
 

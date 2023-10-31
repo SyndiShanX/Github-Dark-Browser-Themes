@@ -1,11 +1,12 @@
 // ==UserScript==
-// @name           SyndiShanX's BD Dark Store
+// @name           BD Dark Theme
 // @author         SyndiShanX
-// @include        https://betterdiscord.app/merch*
+// @include        https://betterdiscord.app/*
+// @exclude        https://betterdiscord.app/merch*
 // ==/UserScript==
-var synCSS = `
+
+var synCss = `
 :root {
-	--theme: BD Dark by SyndiShanX;
 	--border-primary: #5c5c5c;
 	--border-secondary: #c0c0c0;
 	--selection-background: #265d96;
@@ -48,7 +49,7 @@ body, .page-section, .main-page-content {
 }
 
 /* Darkness 2 Background Image */
-.additional-feature, #home-download-cta {
+.additional-feature, #home-download-cta, summary {
 	background-image: var(--bgDarkness2)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -59,15 +60,7 @@ body, .page-section, .main-page-content {
 }
 
 /* Darkness 3 Background Image */
-#navbar, #section-footer, #footer-bottom, .page-section-inner, .footer-column, .footer-column-item, .footer-logo, .footer-logo-wrap, .footer-column-header, .footer-column-item span,
-.footer-copyright, .anchor, #footer-social-icons, .social-icon-inner, .social-icon, .sprd-startpage-cyo-intro, .sprd-startpage, .sprd-bg-m1, .sprd-footer-box, .sprd-footer-box__icons,
-.sprd-footer-box__icon, .sprd-info-footer__col, .sprd-startpage-cyo-intro__steps, .sprd-startpage-cyo-intro__step, .sprd-info-footer__link, .customPageBackground, .sprd-tracking-menu__toggle span,
-.sprd-tracking-menu__caret, .sprd-info-footer__times, .sprd-startpage-cyo-intro__button-section, .sprd-startpage-cyo-intro__step__text, .sprd__text, .sprd-startpage-cyo-intro__icon,
-.sprd-c-m2, .sprd__caption, .sprd-startpage-preview-tiles__cta, .sprd-startpage-preview-tiles__previews, .sprd-startpage-preview-tiles__preview, .navbar-logo, .sprd-img-spinner__image,
-.sprd__caption-link, .sprd-header__title, .sprd__headline, .sprd-department-filter, #navbar-nav-items, .nav-item, .sprd-nav-link, .sprd-basket-indicator__icon-count-wrapper,
-.sprd-basket-indicator__icon, .sprd-basket-indicator, #main-page-content, .sprd-c-s3, .sprd-department-filter__openmenu, .sprd-nav-link__icon, .sprd-designer__back-link,
-.sprd-basket-indicator__button, .sprd-designer__back-link__icon, .designer, #sprd-content, .sprd-breadcrumb, nav[aria-label="Breadcrumb"], .sprd-breadcrumb__link span,
-.sprd-breadcrumb__divider, .sprd-about-info, .sprd-about-info__text, .sprd-about-info__backbtn {
+#navbar, #section-footer, #footer-bottom {
 	background-image: var(--bgDarkness3)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -100,15 +93,12 @@ body, .page-section, .main-page-content {
 }
 
 /* Main Tweaks */
-.sprd-startpage-preview-tiles__text, .sprd-startpage-preview-tiles__price, .sprd-startpage-preview-tiles__name, .btn-secondary span {
-	background-color: transparent!important;
-}
-.sprd-signup-banner__section, .sprd-signup-banner__heart-icon, .sprd-signup-banner__link, .sprd-signup-banner__close-button, .sprd-signup-banner__close-icon {
-	background-color: #3a71c1!important;
-}
 ::selection {
   color: var(--selection-text)!important;
   background: var(--selection-background)!important;
+}
+b, p {
+  color: #fff;
 }
 
 /* Buttons */
@@ -122,11 +112,23 @@ body, .page-section, .main-page-content {
 	background-color: var(--gray-button-hover)!important;
 	border-color: var(--gray-button-border)!important;
 }
+
+/* Blue */
+.btn-primary {
+	background-color: var(--blue-button)!important;
+	border: 2px solid;
+	border-color: var(--blue-button-border)!important;
+	color: #fff!important;
+}
+.btn-primary:hover {
+	background-color: var(--blue-button-hover)!important;
+	border-color: var(--blue-button-border)!important;
+}
 `
 
 var head = document.getElementsByTagName('head')[0];
 var stylesheet = document.createElement("style");
 stylesheet.type = 'text/css'
-stylesheet.innerText = synCSS
-stylesheet.className = 'synCSS'
+stylesheet.innerText = synCss
+stylesheet.className = 'synCss'
 head.appendChild(stylesheet);

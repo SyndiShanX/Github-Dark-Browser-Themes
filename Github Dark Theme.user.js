@@ -1,8 +1,9 @@
 // ==UserScript==
-// @name           SyndiShanX's Github Dark
+// @name           Github Dark Theme
 // @author         SyndiShanX
 // @include        https://github.com/*
 // ==/UserScript==
+
 var synCss = `
 :root {
 	--border-primary: #5c5c5c;
@@ -68,7 +69,7 @@ body, .col-md-8, .col-lg-8, .color-bg-tertiary, .SelectMenu-tab[aria-selected="t
 
 /* Darkness 3 Background Image */
 .Header, .Box-header, .header-logged-out, .team-left-column:not([aria-label="Explore"]), .form-control, .dropdown-menu:not(.flex-items-center), .jump-to-suggestions-path:hover,
-.SelectMenu-modal, .SelectMenu-item, .SelectMenu-message, .SideNav-item:not(.selected), .flash, .hook-item, .form-select, .menu-item {
+.SelectMenu-modal, .SelectMenu-item, .SelectMenu-message, .SideNav-item:not(.selected), .flash, .hook-item, .form-select, .menu-item, .AppHeader {
 	background-image: var(--bgDarkness3)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
