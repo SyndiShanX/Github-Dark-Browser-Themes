@@ -38,7 +38,7 @@ var synCss = `
 }
 
 /* Main Background Image */
-body, .page-section, .main-page-content {
+body, .page-section, .main-page-content, #addons-header>div {
 	background-image: var(--bgImage)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
@@ -60,7 +60,7 @@ body, .page-section, .main-page-content {
 }
 
 /* Darkness 3 Background Image */
-#navbar, #section-footer, #footer-bottom {
+#navbar, #section-footer, #footer-bottom, .modal, #navbar>div, .dropdown-menu {
 	background-image: var(--bgDarkness3)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;

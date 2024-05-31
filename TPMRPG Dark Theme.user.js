@@ -29,7 +29,7 @@ body, .active, .tnav_left, .tnav.left, .tnav, .middle_navigation li a:hover:not(
 }
 
 /* Darkness 1 Background Image */
-.inside, .sidebar, .tnav_left_information, .tnav_information, .tnav_information.left, #battlebtn, .forward, .inputsubmit {
+.inside, .sidebar, .tnav_left_information, .tnav_information, .tnav_information.left, #battlebtn, .forward, .inputsubmit, .pickaxe-perk {
 	background-image: var(--bgDarkness1)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;

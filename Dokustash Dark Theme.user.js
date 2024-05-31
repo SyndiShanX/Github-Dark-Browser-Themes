@@ -2,6 +2,7 @@
 // @name           Dokustash Dark Theme
 // @author         SyndiShanX
 // @include        https://stash.dokucraft.co.uk/*
+// @include        https://cccode.pages.dev/*
 // ==/UserScript==
 
 var synCss = `
@@ -37,7 +38,7 @@ var synCss = `
 .stash-page-wrapper table:not(.js-rows) tbody tr:nth-child(even) td, .stash-page-wrapper table:not(.js-rows) tbody tr:nth-child(even):hover, .sp-shortcuts-shortcut, .menu,
 .sp-details-file-tags, .tags, .sp-details-file-info-right-pane span, .stash-page-content .file.png,.stash-page-content .file.zip:not(.no-thumbnail), .fs-img-container, .ccin-select,
 .ccin-menu-item:hover, .ccin-selected-item, .stash-page-wrapper textarea, .even .filepath, .even:hover, .ccin-wrapper:not(#searchbar) .ccin-input, .ccin-readonly-text,
-.sp-my-submissions-file-meta {
+.sp-my-submissions-file-meta, .sp-admin-review-file-meta {
 	background-image: var(--bgImage)!important;
 	background-clip: border-box!important;
 	background-origin: padding-box!important;
